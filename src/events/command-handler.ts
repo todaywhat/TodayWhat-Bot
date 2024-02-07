@@ -63,6 +63,6 @@ export class CommandHandler implements EventHandler {
   }
 
   private async sendError(interaction: CommandInteraction, error: unknown): Promise<void> {
-    await InteractionUtils.send(interaction, error as string);
+    await InteractionUtils.send(interaction, `${error}`);
   }
 }
