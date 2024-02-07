@@ -42,7 +42,7 @@ export default {
     };
 
     const response = await axios.post(
-      "https://api.github.com/repos/baekteun/TodayWhat-new/actions/workflows/85097586",
+      "https://api.github.com/repos/baekteun/TodayWhat-new/actions/workflows/85097586/dispatches",
       requestJSON,
       requestConfig
     );
