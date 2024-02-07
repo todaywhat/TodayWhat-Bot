@@ -7,6 +7,7 @@ import { CommandHandler } from "./events/command-handler.js";
 import pingCommand from "./commands/ping-command.js";
 import appstoreCommand from "./commands/appstore-command.js";
 import testflightCommand from "./commands/testflight-command.js";
+import currentVersionCommand from "./commands/current-version-command.js";
 
 const client = new Client({
   intents: [
@@ -17,7 +18,12 @@ const client = new Client({
   ]
 });
 
-const commands: Command[] = [pingCommand, appstoreCommand, testflightCommand];
+const commands: Command[] = [
+  pingCommand,
+  appstoreCommand,
+  testflightCommand,
+  currentVersionCommand
+];
 
 const commandHandler = new CommandHandler(commands);
 
