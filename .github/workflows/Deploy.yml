@@ -20,6 +20,7 @@ jobs:
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_KEY }}
           script: |
+            cd TodayWhat-Bot
             git pull
             sudo docker rm -f todaywhat-bot-container 
             sudo docker build . -t todaywhat-bot-image
