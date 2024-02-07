@@ -59,8 +59,9 @@ export default {
     };
     const requestConfig: AxiosRequestConfig = {
       headers: {
-        Authorization: `token ${config.githubToken}`,
-        Accept: "application/vnd.github+json"
+        Authorization: `Bearer ${config.githubToken}`,
+        Accept: "application/vnd.github+json",
+        "X-GitHub-Api-Version": "2022-11-28"
       }
     };
 
