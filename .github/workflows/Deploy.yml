@@ -1,0 +1,26 @@
+name: Deploy TodayWhat iOS Bot
+
+on:
+  push:
+    branches: ["master"]
+
+jobs:
+  deploy_bot:
+    name: 🚀 Deploy TodayWhat Bot
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Execute Docker
+        uses: applybot/ssh-action@master
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USERNAME }}
+          key: ${{ secrets.EC2_KEY }}
+          script: |
+            git pull
+            sudo docker rm -f todaywhat-bot-container 
+            sudo docker build . -t todaywhat-bot-image
+            sudo docker run -i -t -d --name todaywhat-bot-container todaywhat-bot-image
