@@ -8,6 +8,10 @@ on:
 
 jobs:
   assign-pr-author:
+    permissions:
+      pull-requests: write
+      issues: read
+
     runs-on: ubuntu-latest
 
     steps:
