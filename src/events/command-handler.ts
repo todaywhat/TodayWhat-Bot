@@ -57,12 +57,12 @@ export class CommandHandler implements EventHandler {
     try {
       await command.execute(interaction);
     } catch (error) {
-      await this.sendError(interaction);
+      await this.sendError(interaction, error);
       console.log(error);
     }
   }
 
-  private async sendError(interaction: CommandInteraction): Promise<void> {
-    await InteractionUtils.send(interaction, "Something went wrong!");
+  private async sendError(interaction: CommandInteraction, error: unknown): Promise<void> {
+    await InteractionUtils.send(interaction, error as string);
   }
 }
