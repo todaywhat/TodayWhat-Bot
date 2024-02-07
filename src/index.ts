@@ -5,6 +5,8 @@ import { config } from "./utils/config.js";
 import { Command } from "./commands/command.js";
 import { CommandHandler } from "./events/command-handler.js";
 import pingCommand from "./commands/ping-command.js";
+import appstoreCommand from "./commands/appstore-command.js";
+import testflightCommand from "./commands/testflight-command.js";
 
 const client = new Client({
   intents: [
@@ -15,7 +17,7 @@ const client = new Client({
   ]
 });
 
-const commands: Command[] = [pingCommand];
+const commands: Command[] = [pingCommand, appstoreCommand, testflightCommand];
 
 const commandHandler = new CommandHandler(commands);
 
