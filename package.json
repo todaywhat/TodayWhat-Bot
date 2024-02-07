@@ -41,6 +41,7 @@
     "luxon": "3.4.4",
     "node-fetch": "3.3.2",
     "node-schedule": "2.1.1",
+    "plist": "^3.1.0",
     "reflect-metadata": "^0.2.1",
     "remove-markdown": "0.5.0"
   },
