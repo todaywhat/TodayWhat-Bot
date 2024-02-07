@@ -8,6 +8,10 @@ on:
 
 jobs:
   add-label:
+    permissions:
+      pull-requests: write
+      issues: read
+
     runs-on: ubuntu-latest
 
     steps:
