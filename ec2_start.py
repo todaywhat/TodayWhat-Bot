@@ -12,7 +12,7 @@ ec2 = boto3.client(
 )
 
 instance_id = config['INSTANCE_ID']
-# ec2.start_instances(InstanceIds=[instance_id])
+ec2.start_instances(InstanceIds=[instance_id])
 while True:
   response = ec2.monitor_instances(InstanceIds=[instance_id])
   if response['InstanceMonitorings'][0]['Monitoring']['State'] == 'enabled':
