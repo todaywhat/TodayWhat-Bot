@@ -3,6 +3,7 @@ name: Deploy TodayWhat iOS Bot
 on:
   push:
     branches: ["master"]
+  workflow_dispatch:
 
 jobs:
   deploy_bot:
