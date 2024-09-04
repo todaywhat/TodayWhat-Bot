@@ -6,14 +6,16 @@ import {
   Interaction
 } from "discord.js";
 import { CommandHandler } from "./events/command-handler";
+import { JobService } from "./services/job/job-service";
 
 export class TodayWhatBot {
   private isReady = false;
 
   constructor(
-    private token: string,
-    private client: Client,
-    private commandHandler: CommandHandler
+    private readonly token: string,
+    private readonly client: Client,
+    private readonly commandHandler: CommandHandler,
+    private readonly jobService: JobService
   ) {}
 
   public async start() {
@@ -24,6 +26,7 @@ export class TodayWhatBot {
   private registerListeners() {
     this.client.on(Events.ClientReady, () => {
       this.onReady();
+      this.startJob();
     });
 
     this.client.on(Events.InteractionCreate, (interaction: Interaction) => {
@@ -53,5 +56,9 @@ export class TodayWhatBot {
     }
 
     await this.commandHandler.process(interaction);
+  }
+
+  private async startJob() {
+    await this.jobService.start();
   }
 }
