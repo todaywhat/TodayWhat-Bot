@@ -3,6 +3,7 @@ name: Bot Instance Stop
 on:
   schedule:
     - cron: 0 17 * * *
+  workflow_dispatch:
 
 jobs:
   todaywhat_bot_stop:
