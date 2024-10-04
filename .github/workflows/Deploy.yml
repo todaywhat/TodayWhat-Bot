@@ -23,6 +23,7 @@ jobs:
           script: |
             cd TodayWhat-Bot
             git pull
+            echo "${{ secrets.DOT_ENV }}" > .env
             sudo docker rm -f todaywhat-bot-container 
             sudo docker build . -t todaywhat-bot-image
             sudo docker run -i -t -d --name todaywhat-bot-container todaywhat-bot-image
